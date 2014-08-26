@@ -1,4 +1,4 @@
-module Trie(Trie(..), empty, insert, member) where
+module Trie(Trie, empty, insert, member) where
 
 import Data.Char (ord, toUpper)
 import Data.Maybe (isJust)
