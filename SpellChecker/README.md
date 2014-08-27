@@ -11,4 +11,9 @@ Features:
 
 - Mutable data structure
 
+Requirements:
+
+    $ cabal install vector
+    $ cabal install containers
+
 Status: Completed

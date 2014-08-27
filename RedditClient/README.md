@@ -13,8 +13,8 @@ Features:
 
 Requirements:
 
-    $ cabal install aeson
-    $ cabal install lens
+    $ cabal install aeson-lens
     $ cabal install hxt-unicode
 
-Status: Completed
+Status: In progress. The code is now breaking because of changes in aeson-lens.
+Will come back to it soon.

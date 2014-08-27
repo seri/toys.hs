@@ -17,9 +17,9 @@ jsonFile = "build/hot.json"
 showPost :: Post -> IO String
 showPost (Post title domain author score commentCount createdUTC) = do
     friendlyTime <- showTime createdUTC
-    return $ title ++ " (" ++ domain ++ ")\n    " ++
-            pluralize score "point" ++ " by " ++ author ++ " " ++
-            friendlyTime ++ " | " ++ pluralize commentCount "comment"
+    return . concat $ [ title, " (", domain, ")\n    "
+                      , pluralize score "point", " by ", author, " "
+                      , friendlyTime, " | ",  pluralize commentCount "comment" ]
 
 showListing :: Listing -> IO String
 showListing (Listing posts) = intercalate "\n" `liftA` mapM showPost posts

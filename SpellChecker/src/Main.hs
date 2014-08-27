@@ -27,15 +27,15 @@ eachSolver source target (name, spellChecker) = do
     let result = spellChecker source target
     after <- result `deepseq` getCurrentTime
     let elapsed = diffUTCTime after before
-    putStrLn $ name ++ " found " ++ show (length result) ++ 
-                " invalid words in " ++ show elapsed ++ " seconds"
+    putStrLn . concat $ [ name, " found ", show (length result)
+                        , " invalid words in ", show elapsed,  " seconds" ]
 
 main :: IO ()
 main = do
     sourceContent <- readFile sourceFile
     targetContent <- readFile targetFile
-    let source = convert $! sourceContent
-        target = convert $! targetContent
-    putStrLn $ "The source contains " ++ (show $ length source) ++ " words"
-    putStrLn $ "The target contains " ++ (show $ length target) ++ " words"
+    let source = convert sourceContent
+        target = convert targetContent
+    putStrLn . concat $ [ "The source contains ", show (length source), " words" ]
+    putStrLn . concat $ [ "The target contains ", show (length target), " words" ]
     mapM_ (eachSolver source target) solvers
