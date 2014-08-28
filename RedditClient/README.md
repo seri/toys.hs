@@ -16,5 +16,4 @@ Requirements:
     $ cabal install aeson-lens
     $ cabal install hxt-unicode
 
-Status: In progress. The code is now breaking because of changes in aeson-lens.
-Will come back to it soon.
+Status: Completed
