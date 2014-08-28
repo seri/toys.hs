@@ -2,20 +2,21 @@ module Listing (Listing(..), Post(..), fromJson) where
 
 import Data.Maybe (catMaybes)
 import Data.Scientific (Scientific)
-import Data.Vector (toList)
 import Data.List (intercalate)
+import qualified Data.Vector as V
 import qualified Data.HashMap.Strict as M
 
 import qualified Data.Text as T
+import qualified Data.ByteString.Lazy.Char8 as B
 import Data.String.Unicode (unicodeRemoveNoneAscii)
 
 import Data.Time.Calendar (fromGregorian)
 import Data.Time.Clock (UTCTime(..), addUTCTime)
 import qualified Data.Time.Format
 
-import Control.Lens ((^?))
+import Control.Lens ((^.))
 import qualified Data.Aeson as J
-import Data.Aeson.Lens (key, _Array)
+import Data.Aeson.Lens (key)
 
 
 toUTCTime :: Scientific -> UTCTime
@@ -42,8 +43,9 @@ data Listing = Listing [Post]
 
 
 fromJson :: String -> Maybe Listing
-fromJson json = json ^? key (T.pack "data") . key (T.pack "children") . _Array >>=
-                toListing . catMaybes . map toPost . toList
+fromJson json = J.decode (B.pack json) >>= 
+    flip (^.) (key (T.pack "data") . key (T.pack "children")) >>= 
+    toListing . catMaybes . map toPost . V.toList
 
 toListing :: [Post] -> Maybe Listing
 toListing [] = Nothing
@@ -62,6 +64,6 @@ toPost' _ = Nothing
 toPost'' :: [J.Value] -> Maybe Post
 toPost'' [ J.String title, J.String domain, J.String author
          , J.Number score, J.Number commentCount, J.Number createdUTC ] =
-    Just $ Post (toString title) (toString domain) (toString author) 
+    Just $ Post (toString title) (toString domain) (toString author)
                 (toInt score) (toInt commentCount) (toUTCTime createdUTC)
 toPost'' _ = Nothing

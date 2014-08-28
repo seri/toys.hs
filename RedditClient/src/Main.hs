@@ -25,5 +25,5 @@ showListing :: Listing -> IO String
 showListing (Listing posts) = intercalate "\n" `liftA` mapM showPost posts
 
 main :: IO ()
-main = download jsonUrl jsonFile >>
-    readFile jsonFile >>= showListing . fromJust . fromJson >>= putStr
+main = download jsonUrl jsonFile >> readFile jsonFile >>= 
+       showListing . fromJust . fromJson >>= putStr
