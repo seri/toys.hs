@@ -14,7 +14,7 @@ import Data.Time.Calendar (fromGregorian)
 import Data.Time.Clock (UTCTime(..), addUTCTime)
 import qualified Data.Time.Format
 
-import Control.Lens ((^.))
+import Control.Lens (view)
 import qualified Data.Aeson as J
 import Data.Aeson.Lens (key)
 
@@ -44,7 +44,7 @@ data Listing = Listing [Post]
 
 fromJson :: String -> Maybe Listing
 fromJson json = J.decode (B.pack json) >>= 
-    flip (^.) (key (T.pack "data") . key (T.pack "children")) >>= 
+    view (key (T.pack "data") . key (T.pack "children")) >>=
     toListing . catMaybes . map toPost . V.toList
 
 toListing :: [Post] -> Maybe Listing

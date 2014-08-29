@@ -1,6 +1,7 @@
 import SpellChecker (SpellChecker)
 import CheckWithMap (checkWithMap)
-import CheckWithTrie (checkWithTrie)
+import CheckWithSTTrie (checkWithSTTrie)
+import CheckWithBTrie (checkWithBTrie)
 
 import Data.Char (isAlpha, toUpper)
 import Data.Time.Clock (getCurrentTime, diffUTCTime)
@@ -15,7 +16,8 @@ targetFile = "fiction.txt"
 
 solvers :: [ (String, SpellChecker) ]
 solvers = [ ("Data.Map SpellChecker", checkWithMap)
-          , ("Trie SpellChecker", checkWithTrie) ]
+          , ("Data.Trie SpellChecker", checkWithBTrie)
+          , ("Our mutable trie SpellChecker", checkWithSTTrie) ]
 
 convert :: String -> [String]
 convert = map (map toUpper . filter isAlpha) . words
@@ -36,6 +38,8 @@ main = do
     targetContent <- readFile targetFile
     let source = convert sourceContent
         target = convert targetContent
-    putStrLn . concat $ [ "The source contains ", show (length source), " words" ]
-    putStrLn . concat $ [ "The target contains ", show (length target), " words" ]
+        putLen name xs = putStrLn . concat $ 
+            [ "The ", name, " contains ", show (length xs), " words" ]
+    putLen "source" source
+    putLen "target" target
     mapM_ (eachSolver source target) solvers
