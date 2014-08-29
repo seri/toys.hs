@@ -1,15 +1,10 @@
-import Data.List (intercalate)
 import Data.Monoid (Monoid, mconcat)
-
 import Control.Monad (liftM)
 
 import System.FilePath ((</>))
 import System.Directory (getDirectoryContents, doesDirectoryExist)
 import System.Environment (getArgs)
 
-
-join :: [String] -> String
-join = intercalate "\n"
 
 times :: Monoid a => Int -> a -> a
 times n = mconcat . replicate n  
@@ -41,11 +36,11 @@ buildTree level parent = do
     buildEntry level parent `concatMapM` children
 
 showTree :: FilePath -> IO String
-showTree root = buildTree 0 root >>= return . join . map show
+showTree root = buildTree 0 root >>= return . unlines . map show
 
 
 usage :: String
-usage = join [ 
+usage = unlines [ 
     "Usage: DirectoryTree <dir>", 
     "Display a tree view of the part of the file system rooted at <dir>" ]
 
