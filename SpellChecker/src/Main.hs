@@ -1,7 +1,8 @@
 import SpellChecker (SpellChecker)
 import CheckWithMap (checkWithMap)
-import CheckWithSTTrie (checkWithSTTrie)
+import CheckWithSet (checkWithSet)
 import CheckWithBTrie (checkWithBTrie)
+import CheckWithSTTrie (checkWithSTTrie)
 
 import Data.Char (isAlpha, toUpper)
 import Data.Time.Clock (getCurrentTime, diffUTCTime)
@@ -16,6 +17,7 @@ targetFile = "fiction.txt"
 
 solvers :: [ (String, SpellChecker) ]
 solvers = [ ("Data.Map SpellChecker", checkWithMap)
+          , ("Data.Set SpellChecker", checkWithSet)
           , ("Data.Trie SpellChecker", checkWithBTrie)
           , ("Our mutable trie SpellChecker", checkWithSTTrie) ]
 
