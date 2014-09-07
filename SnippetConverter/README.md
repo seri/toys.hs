@@ -1,7 +1,11 @@
+## Problem
+
 Convert back and forth between Sublime Text snippets and Vim snippets.
 
-Features
+## Lessons
 
 - XML handling
 
-Status: Not started
+## Status
+
+Not started

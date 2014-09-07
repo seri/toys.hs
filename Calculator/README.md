@@ -1,10 +1,41 @@
-A command line calculator (like the Unix tool `bc`). The rationale is to
-reimplement a basic core of Parsec because that's one of the best example
-uses of the State monad.
+## Problem
 
-Features:
+Jon Snow is in charge of finance at the Wall so it is no wonder he has to
+calculate a lot. Most GUI calculators are too slow for him so he he hired you
+to write a fast and responsive CLI calculator. He even wrote some detailed use
+case scenarios:
 
-- Parsing without Parsec (and Parsec's cousins)
-- The State monad
+    $ make
+    Welcome to Awesome Calculator
+    Use Ctrl-C to quit
+    >>> 1 + 1
+    2
+    >>> 1 + 2 * 3
+    7
+    >>> 3 - 2 - 1
+    0
+    >>> 3 - (2 - 1)
+    2
+    >>> 3 - (2 - 1
+    Error: invalid expression
 
-Status: Not started
+Jon also forbid you to use Monad because he heard on the news that Monads are
+impure and hence evil. The only Monads you are permitted to use are Maybe and
+IO.
+
+## Lessons
+
+- Implement a primitive parser library (a Parsec wannabe) from scrach
+- Construct an LL(1) grammar AST for arithmetic expressions
+- Write a recursive descent parser
+- Familiarity with Applicative style
+- A taste of Arrow
+
+## Status
+
+Not started
+
+## References
+
+- http://stackoverflow.com/questions/20660782/writing-a-parser-from-scratch-in-haskell
+- http://knuth.luther.edu/~leekent/tutorials/ll1.html

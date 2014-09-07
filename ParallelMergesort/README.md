@@ -1,8 +1,14 @@
+## Problem
+
 Sort a list of integers using parallel mergesort 
 
-Features:
+## Lessons
 
-- Random numbers
+- Random number generator
 - Concurrency
 
-Status: Not started
+## Dependencies
+
+## Status
+
+Not started

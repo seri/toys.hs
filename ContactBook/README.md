@@ -1,7 +1,11 @@
-A contact book manager with command line interface.
+## Problem
 
-Features:
+A basic CRUD application from the command line.
+
+## Lessons
 
 - Database handling
 
-Status: Not started
+## Status
+
+Not started

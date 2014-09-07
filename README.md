@@ -1,8 +1,30 @@
-Toy programs written in Haskell. This is the so-called real-world version of
-euler.hs, my other Haskell repo dedicated to the algorithmic side of the
-language.
+## What are toys
 
-For programs without a Makefile, you can shamelessly go:
+A toy is a runnable program that has these properties:
 
-    $ cd <ToyName>
+- *Small*: There should be less than 10 source files.
+- *Motivating*: It should do something easily understandable and imaginatively
+useful.
+- *Educational*: It should make use of something interesting from the Haskell
+ecosystem and it must be written in idiomatic Haskell.
+
+## How to run toys
+
+If a toy has a Makefile, do:
+
+    $ make
+
+Otherwise you can shamelessly go:
+
     $ runhaskell <ToyName>.hs [arguments]
+
+## List of completed toys
+
+Here is a list of completed toys in (non-strictly) increasing order of
+difficulty:
+
+- Directory tree
+- Internet time
+- Reddit client
+- Spell checker
+- Calculator

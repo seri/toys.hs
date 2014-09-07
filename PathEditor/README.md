@@ -1,8 +1,14 @@
+## Problem
+
 An interactive editor for the PATH environmental variable.
 
-Features:
+## Lessons
 
 - Command line interaction
 - Operating system API
 
-Status: Not started
+## Dependencies
+
+## Status
+
+Not started

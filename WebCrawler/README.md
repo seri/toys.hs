@@ -1,7 +1,14 @@
+## Problem
+
 Grab a local copy of the online book Learn You A Haskell.
 
-Features:
+## Lessons
 
 - Concurrent downloading
+- Web scraping
 
-Status: Not started 
+## Dependencies
+
+## Status
+
+Not started 

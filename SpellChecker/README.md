@@ -1,22 +1,24 @@
-Given a list of all valid English words and a list of words to check, a spell
-checker's job is to find all invalid words in the second list. This is a
-shameless an excuse to implement a mutable trie and to benchmark it against
-similar data structres from the standard library.
+## Problem
 
-Result of the benchmark: `Data.Trie` is the fastest, `Data.Set` comes pretty
-close, `Data.Map` is about two times slower, and our `STTrie` is infinitely
-slower than everything.
+Due to the massive movement toward self-publishing and open source book writing
+in the technical books market, O'Reily is forced to reposition itself in the
+classic fictions market. Jon Snow was hired by O'Reily to spell check its first
+release, the nth edition of Pride of Prejudice. Jon figured there would be a
+lot of jobs like this coming so he hired you to write a spell checking software
+once and for all. He also demanded it to be as fast as possible.
 
-Features:
+## Lessons
 
-- Mutable data structure
-- Force strict evaluation with deepseq
+- A mutable Trie written from scratch
+- Force strict evaluation with `deepseq`
 
-Requirements:
+## Dependencies
 
     $ cabal install vector
     $ cabal install containers
     $ cabal install bytestring-trie
     $ cabal install deepseq
 
-Status: Working
+## Status
+
+Done
