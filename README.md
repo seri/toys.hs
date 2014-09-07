@@ -27,4 +27,3 @@ difficulty:
 - Internet time
 - Reddit client
 - Spell checker
-- Calculator
