@@ -30,8 +30,7 @@ factor = bracketExpr <|> number
 
 bracketExpr :: Parser Factor
 bracketExpr = liftA Bracket ((spaces *> char '(') *> 
-                     expr <* (spaces *> char ')')) where
-    middle _ x _ = x
+                     expr <* (spaces *> char ')'))
 
 number :: Parser Factor
 number = (liftA Number . collapse . liftA toInt)
