@@ -7,21 +7,20 @@ case scenarios:
 
     $ make
     Welcome to Awesome Calculator
-    Use Ctrl-C to quit
-    >>> 1 + 1
-    2
-    >>> 1 + 2 * 3
-    7
+    Type exit to quit
+    1 + 1
+    Just 2
+    1 + 2 * 3
+    Just 7
     >>> 3 - 2 - 1
-    0
-    >>> 3 - (2 - 1)
-    2
-    >>> 3 - (2 - 1
-    Error: invalid expression
+    Just 0
+    3 - (2 - 1)
+    Just 2
+    exit
 
 Jon also forbid you to use Monad because he heard on the news that Monads are
-impure and hence evil. The only Monads you are permitted to use are Maybe and
-IO.
+impure and thus attract the white walkers. The only Monads you are permitted to
+use are `Maybe` and `IO`.
 
 ## Lessons
 
@@ -30,10 +29,11 @@ IO.
 - Write a recursive descent parser
 - Familiarity with Applicative style
 - A taste of Arrow
+- Program's main loop
 
 ## Status
 
-In progress
+Done
 
 ## References
 

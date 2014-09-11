@@ -2,10 +2,10 @@
 
 Besides being a Haskeller, Jon Snow is also a huge fan of Reddit. It is no
 wonder that he reads the haskell subreddit (/r/haskell) frequently. However,
-both Chrome and Firefox on his computer was hijacked by the Lannisters. IE is
+both Chrome and Firefox on his computer were hijacked by the Lannisters. IE is
 fine but he doesn't know that it exists (indeed,
 [Jon Snow doesn't know much](http://media-cache-ak0.pinimg.com/736x/e8/ef/92/e8ef922fff4171bf91fa36180c7490cf.jpg)) so
-he has hired you to write a tool to display to current hot posts in /r/haskell.
+he has hired you to write a tool to display the current hot posts in /r/haskell.
 
 ## Lessons
 

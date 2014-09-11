@@ -14,15 +14,15 @@ module Expr (
 
 data Expr = Expr Term MoreExpr 
     deriving Show
-data MoreExpr = NullExpr | MoreExpr AddSub Term MoreExpr
+data MoreExpr = MoreExpr AddSub Term MoreExpr | NullExpr
     deriving Show
 data AddSub = Add | Sub
     deriving Show
 data Term = Term Factor MoreTerm
     deriving Show
-data MoreTerm = NullTerm | MoreTerm MulDiv Factor MoreTerm
+data MoreTerm = MoreTerm MulDiv Factor MoreTerm | NullTerm
     deriving Show
 data MulDiv = Mul | Div
     deriving Show
-data Factor = Number Int | Bracket Expr
+data Factor = Bracket Expr | Number Int
     deriving Show

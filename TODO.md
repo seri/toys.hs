@@ -4,3 +4,4 @@
 - A toy that uses the State monad
 - A toy that uses Arrow
 - A toy that involves comonad
+- A toy that shows the usefulness of QuickCheck
