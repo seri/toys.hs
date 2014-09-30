@@ -1,4 +1,6 @@
-module Listing (Listing(..), Post(..), fromJson) where
+module Listing ( Listing (..)
+               , Post (..)
+               , fromJson ) where
 
 import Data.Maybe (catMaybes)
 import Data.Scientific (Scientific)
@@ -30,14 +32,12 @@ toString :: T.Text -> String
 toString = unicodeRemoveNoneAscii . T.unpack
 
 
-data Post = Post {
-    postTitle :: String ,
-    postDomain :: String ,
-    postAuthor :: String ,
-    postScore :: Int ,
-    postCommentCount :: Int ,
-    postCreatedUTC :: UTCTime
-}
+data Post = Post { postTitle :: String 
+                 , postDomain :: String 
+                 , postAuthor :: String 
+                 , postScore :: Int 
+                 , postCommentCount :: Int 
+                 , postCreatedUTC :: UTCTime }
 
 data Listing = Listing [Post]
 

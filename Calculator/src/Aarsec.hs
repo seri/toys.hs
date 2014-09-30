@@ -1,9 +1,7 @@
 -- A minimal applicative parsing library
 
-module Aarsec ( 
-    Parser(..) , 
-    token , satisfy , char , string , spaces
-) where
+module Aarsec ( Parser(..) 
+              , token, satisfy, char, string, spaces ) where
 
 import Data.Char
 import Data.Functor

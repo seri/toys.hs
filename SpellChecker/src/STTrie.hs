@@ -10,10 +10,8 @@ import qualified Data.Vector.Mutable as V
 -- on PrimMonad and PrimState so that it can work within both IO and ST. Also,
 -- our trie only accepts String keys composed of capitalized English alphabets
 -- ([A-Z]+). Values, though, can be of any type.
-data STTrie s a = STTrie {
-    trieValue :: Maybe a ,
-    trieChildren :: V.STVector s (Maybe (STTrie s a))
-}
+data STTrie s a = STTrie { trieValue :: Maybe a 
+                         , trieChildren :: V.STVector s (Maybe (STTrie s a)) }
 
 toIndex :: Char -> Int
 toIndex c = (ord (toUpper c) - ord 'A') `mod` 26

@@ -23,8 +23,8 @@ Otherwise you can shamelessly go:
 Here is a list of completed toys in (non-strictly) increasing order of
 difficulty:
 
-- Directory tree
 - Internet time
+- Directory tree
 - Reddit client
 - Spell checker
 - Calculator

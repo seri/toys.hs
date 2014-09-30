@@ -12,7 +12,7 @@ case scenarios:
     Just 2
     1 + 2 * 3
     Just 7
-    >>> 3 - 2 - 1
+    3 - 2 - 1
     Just 0
     3 - (2 - 1)
     Just 2
