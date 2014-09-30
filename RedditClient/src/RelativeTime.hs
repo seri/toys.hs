@@ -16,7 +16,4 @@ showDiff x = showDiff' x ++ " ago" where
         | otherwise = pluralize x "second"
 
 showTime :: UTCTime -> IO String
-showTime utcTime = do
-    currentTime <- getCurrentTime
-    let diff = diffUTCTime currentTime utcTime
-    return . showDiff . round $ diff
+showTime utcTime = (showDiff . round . (`diffUTCTime` utcTime)) `fmap` getCurrentTime

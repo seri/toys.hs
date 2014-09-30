@@ -5,22 +5,19 @@ import System.IO (FilePath, writeFile)
 import System.Directory (doesFileExist, getModificationTime)
 import Network.HTTP (simpleHTTP, getRequest, getResponseBody)
 
+import Control.Applicative (liftA2)
+
 isFresh :: FilePath -> IO Bool
 isFresh file = do
     exists <- doesFileExist file
     if not exists
         then return False
-        else do
-    fileTime <- getModificationTime file
-    currentTime <- getCurrentTime
-    return $ currentTime `diffUTCTime` fileTime <= 3600
+        else (<= 3600) `fmap` 
+             liftA2 diffUTCTime getCurrentTime (getModificationTime file)
 
 download :: String -> FilePath -> IO ()
 download url file = do
     fresh <- isFresh file
     if fresh 
         then return ()
-        else do
-    response <- simpleHTTP . getRequest $ url
-    body <- getResponseBody response
-    writeFile file body
+        else (simpleHTTP . getRequest) url >>= getResponseBody >>= writeFile file

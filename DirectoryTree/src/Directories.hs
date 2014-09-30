@@ -17,7 +17,7 @@ shiftWidth :: String
 shiftWidth = times 4 " "
 
 concatMapM :: Monad m => (a -> m [b]) -> [a] -> m [b]
-concatMapM f xs = concat `liftM` mapM f xs
+concatMapM f xs = concat `fmap` mapM f xs
 
 data Entry = Entry Int FilePath
 instance Show Entry where
