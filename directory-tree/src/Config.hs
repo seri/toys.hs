@@ -30,5 +30,5 @@ splitBy :: Eq a => a -> [a] -> [[a]]
 splitBy y [] = []
 splitBy y xs = left : splitBy y rest where
     (left, right) = break (== y) xs
-    rest = if (null right == False) && (head right == y) then tail right 
+    rest = if (null right == False) && (head right == y) then tail right
                                                          else right
